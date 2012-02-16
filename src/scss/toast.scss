@@ -1,0 +1,100 @@
+@import 'compass/css3';
+
+@mixin toast-show-start {
+  @include experimental(transform, scaleX(0));
+  color: rgba(255, 255, 255, 1);
+}
+
+@mixin toast-show-middle {
+  @include experimental(transform, scaleX(1.2));
+  color: rgba(255, 255, 255, 1);
+}
+
+@mixin toast-show-end {
+  @include experimental(transform, scaleX(1));
+  color: rgba(255, 255, 255, 1);
+}
+
+@-webkit-keyframes toast-show {
+  // from { @include toast-show-start(); }
+  50% { @include toast-show-middle(); }
+  to { @include toast-show-end(); }
+}
+
+@-moz-keyframes toast-show {
+  // from { @include toast-show-start(); }
+  50% { @include toast-show-middle(); }
+  to { @include toast-show-end(); }
+}
+
+@-ms-keyframes toast-show {
+  // from { @include toast-show-start(); }
+  50% { @include toast-show-middle(); }
+  to { @include toast-show-end(); }
+}
+
+@-o-keyframes toast-show {
+  // from { @include toast-show-start(); }
+  50% { @include toast-show-middle(); }
+  to { @include toast-show-end(); }
+}
+
+@keyframes toast-show {
+  // from { @include toast-show-start(); }
+  50% { @include toast-show-middle(); }
+  to { @include toast-show-end(); }
+}
+
+@mixin transition-transform($duration) {
+  -webkit-transition: -webkit-transform $duration;
+  -moz-transition: -moz-transform $duration;
+  -ms-transition: -ms-transform $duration;
+  -o-transition: -o-transform $duration;
+  transition: transform $duration;
+}
+
+.toast {
+  pointer-events: none;
+  padding: 15px 20px;
+  background-color: #7f7f7f;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  @include border-radius(10px);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  border-color: #000;
+  z-index: 1000;
+
+  &.animate {
+    @include opacity(0);
+    @include experimental(transform, scaleX(0));
+
+    &.bounce {
+      $duration: 0.4s;
+      @include experimental(animation, toast-show $duration);
+
+      // This is to emulate a transition with the same duration as the animation
+      @include transition(border-color $duration);
+      border-color: #fff;
+    }
+
+    &.show {
+      @include opacity(1);
+    }
+
+    &.shown {
+      @include opacity(1);
+      @include experimental(transform, scaleX(1));
+
+      &.hide {
+        $duration: 0.3s;
+        @include transition(opacity $duration);
+        @include opacity(0);
+      }
+    }
+  }
+}
