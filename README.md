@@ -26,6 +26,11 @@ Prerequisites
 * [Rake](http://rake.rubyforge.org/)
 * [Bundler](http://gembundler.com/)
 
+Initializing submodules
+-----------------------
+ - `git submodule init`
+ - `git submodule update`
+
 Running the build
 -----------------
 - `bundle install`
