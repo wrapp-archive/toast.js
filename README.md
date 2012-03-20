@@ -59,7 +59,6 @@ Examples
 --------
 An example can be found in the examples directory or at [the example site](http://wrapp.github.com/toast.js).
 
-
 Instance variables
 ------------------
 Changing any of these will be reflected the next time the toast is shown.
@@ -92,5 +91,9 @@ This project is licensed under the [MIT License](http://en.wikipedia.org/wiki/MI
 
 Changelist
 ==========
+### 1.0.1
+* Bump the version of transition-callbacks.js
+* Add some clearer instructions to the README.
+
 ### 1.0
 * Initial release.
