@@ -52,7 +52,7 @@ Here is a basic example:
 
 Examples
 --------
-An example can be found in the examples directory.
+An example can be found in the examples directory or at [the example site](http://wrapp.github.com/toast.js).
 
 
 Instance variables
