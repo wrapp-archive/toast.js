@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toast.js example</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/toast.css">
+  <script src="javascripts/toast.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var t = new Toast({
+      content: "Oops, this shouldn't be shown :(",
+      allowHTML: false
+    });
+    function showToast() {
+      if(window.Toast)
+        // Notice how these options supersede the ones in constructor
+        t.show({duration: 2000, content: '<strong>Om nom nom!</strong>', allowHTML: true});
+      else
+        alert("Could not load the lib, did you run 'rake build'?");
+    }
+  </script>
+
+  <style type="text/css">
+    body, html {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -200px;
+      margin-left: -100px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <img src="images/toast.jpg" onclick="showToast();" />
+</body>
+</html>
