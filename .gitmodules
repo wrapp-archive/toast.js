@@ -1,0 +1,3 @@
+[submodule "src/vendor/transition-callbacks.js"]
+	path = src/vendor/transition-callbacks.js
+	url = git@github.com:wrapp/transition-callbacks.js.git
