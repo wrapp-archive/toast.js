@@ -103,6 +103,8 @@ class window.Toast
 
     @element.style.marginLeft = parseInt(-width/2, 10) + 'px'
     @element.style.marginTop = parseInt(-height/2, 10) + 'px'
+    @element.style.left = '50%'
+    @element.style.top = '50%'
 
     @_addClass('bounce')
     @_addClass('show') if not @isShowing()

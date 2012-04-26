@@ -62,9 +62,9 @@
   font-size: 16px;
   font-weight: bold;
   @include border-radius(10px);
+  @include box-sizing(border-box);
   position: fixed;
-  top: 50%;
-  left: 50%;
+  max-width: 90%;
   color: #fff;
   border-color: #000;
   z-index: 1000;
