@@ -19,7 +19,7 @@ class window.Toast
 
   _setupDefaultOptions: (options) =>
     @[opt] = options[opt] for opt of OPTIONS
-    @duration ||= DEFAULT_DURATION
+    @duration = options.duration or DEFAULT_DURATION
     @animate = @animate isnt false
     return this
 

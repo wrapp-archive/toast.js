@@ -92,6 +92,7 @@ This project is licensed under the [MIT License](http://en.wikipedia.org/wiki/MI
 Changelist
 ==========
 ### 1.0.1
+* Fix a bug when specifying a duration in the constructor.
 * Bump the version of transition-callbacks.js
 * Add some clearer instructions to the README.
 
