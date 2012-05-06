@@ -68,6 +68,8 @@
   color: #fff;
   border-color: #000;
   z-index: 1000;
+  min-width: 150px;
+  text-align: center;
 
   &.animate {
     @include opacity(0);
