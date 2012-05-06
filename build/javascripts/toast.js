@@ -3,7 +3,9 @@
 
   isEmpty = function(object) {
     var k;
-    if (object == null) return true;
+    if (object == null) {
+      return true;
+    }
     for (k in object) {
       return false;
     }
@@ -23,7 +25,9 @@
   window.TransitionCallbacks = (function() {
     var _this = this;
 
-    TransitionCallbacks.VERSION = '1.0';
+    TransitionCallbacks.name = 'TransitionCallbacks';
+
+    TransitionCallbacks.VERSION = '1.0.1';
 
     TransitionCallbacks.timeout = 3000;
 
@@ -64,8 +68,12 @@
       if (typeof (element != null ? element.get : void 0) === 'function') {
         element = element.get(0);
       }
-      if (!element) throw new TransitionCallbacks.NoElementGiven;
-      if (!callback) throw new TransitionCallbacks.NoCallbackGiven;
+      if (!element) {
+        throw new TransitionCallbacks.NoElementGiven;
+      }
+      if (!callback) {
+        throw new TransitionCallbacks.NoCallbackGiven;
+      }
       timeout = this._getTimeout(options);
       this._clearOldCallbacks(element, callback, options);
       (_base = this._transitionCallbacks)[element] || (_base[element] = {});
@@ -89,7 +97,9 @@
       };
       if (this.transition && typeof element.addEventListener === 'function') {
         element.addEventListener(this.transition.end, c.callback, false);
-        if (timeout !== false) c.timeout = setTimeout(c.callback, timeout);
+        if (timeout !== false) {
+          c.timeout = setTimeout(c.callback, timeout);
+        }
       } else {
         c.callback();
       }
@@ -120,7 +130,9 @@
       if (typeof (element != null ? element.get : void 0) === 'function') {
         element = element.get(0);
       }
-      if (!this._transitionCallbacks[element]) return false;
+      if (!this._transitionCallbacks[element]) {
+        return false;
+      }
       if (callback != null) {
         if (this._transitionCallbacks[element][callback]) {
           this._transitionCallbacks[element][callback].cancel();
@@ -148,7 +160,9 @@
 
     TransitionCallbacks.isCallbackPending = function(element, callback) {
       var c;
-      if (!(c = this._transitionCallbacks[element])) return false;
+      if (!(c = this._transitionCallbacks[element])) {
+        return false;
+      }
       if (callback != null) {
         return callback in c;
       } else {
@@ -157,9 +171,15 @@
     };
 
     function TransitionCallbacks(options) {
-      if (options == null) options = {};
-      if (options.timeout != null) this.timeout = options.timeout;
-      if (options.clearAll != null) this.clearAll = options.clearAll;
+      if (options == null) {
+        options = {};
+      }
+      if (options.timeout != null) {
+        this.timeout = options.timeout;
+      }
+      if (options.clearAll != null) {
+        this.clearAll = options.clearAll;
+      }
       this._transitionCallbacks = {};
     }
 
@@ -183,6 +203,8 @@
 
   TransitionCallbacks.NoCallbackGiven = (function() {
 
+    NoCallbackGiven.name = 'NoCallbackGiven';
+
     NoCallbackGiven.prototype = Error.prototype;
 
     function NoCallbackGiven() {
@@ -194,6 +216,8 @@
   })();
 
   TransitionCallbacks.NoElementGiven = (function() {
+
+    NoElementGiven.name = 'NoElementGiven';
 
     NoElementGiven.prototype = Error.prototype;
 
@@ -209,7 +233,9 @@
     $.support.transition = TransitionCallbacks.transition;
     tc = new TransitionCallbacks();
     $.fn.addTransitionCallback = function(options, callback) {
-      if (this.length > 0) tc.addCallback(this.get(0), options, callback);
+      if (this.length > 0) {
+        tc.addCallback(this.get(0), options, callback);
+      }
       return this;
     };
     $.fn.cancelTransitionCallback = function(callback) {
@@ -238,7 +264,7 @@
 (function() {
   var DEFAULT_DURATION, DURATION_MAP, OPTIONS,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-    __slice = Array.prototype.slice;
+    __slice = [].slice;
 
   DEFAULT_DURATION = 'medium';
 
@@ -252,27 +278,48 @@
 
   window.Toast = (function() {
 
-    Toast.VERSION = '1.0';
+    Toast.name = 'Toast';
+
+    Toast.VERSION = '1.0.1';
 
     function Toast(options) {
-      if (options == null) options = {};
+      if (options == null) {
+        options = {};
+      }
       this._remove = __bind(this._remove, this);
+
       this.hide = __bind(this.hide, this);
+
       this._setupHideTimer = __bind(this._setupHideTimer, this);
+
       this._addClass = __bind(this._addClass, this);
+
       this._showElement = __bind(this._showElement, this);
+
       this.isShowing = __bind(this.isShowing, this);
+
       this._addElementClasses = __bind(this._addElementClasses, this);
+
       this._shouldAnimate = __bind(this._shouldAnimate, this);
+
       this._option = __bind(this._option, this);
+
       this._addContent = __bind(this._addContent, this);
+
       this._clearTimeout = __bind(this._clearTimeout, this);
+
       this._removeClass = __bind(this._removeClass, this);
+
       this._hasClass = __bind(this._hasClass, this);
+
       this.show = __bind(this.show, this);
+
       this._addElementId = __bind(this._addElementId, this);
+
       this._createElement = __bind(this._createElement, this);
+
       this._setupDefaultOptions = __bind(this._setupDefaultOptions, this);
+
       this.tc = new TransitionCallbacks({
         clearAll: true,
         timeout: 500
@@ -285,7 +332,7 @@
       for (opt in OPTIONS) {
         this[opt] = options[opt];
       }
-      this.duration || (this.duration = DEFAULT_DURATION);
+      this.duration = options.duration || DEFAULT_DURATION;
       this.animate = this.animate !== false;
       return this;
     };
@@ -296,13 +343,19 @@
     };
 
     Toast.prototype._addElementId = function() {
-      if (this.id) this.element.id = this.id;
+      if (this.id) {
+        this.element.id = this.id;
+      }
       return this;
     };
 
     Toast.prototype.show = function(options) {
-      if (options == null) options = {};
-      if (this._hasClass('bounce')) return;
+      if (options == null) {
+        options = {};
+      }
+      if (this._hasClass('bounce')) {
+        return;
+      }
       this._temporaryOptions = options;
       this._removeClass('hide')._clearTimeout()._addContent()._addElementClasses()._showElement()._setupHideTimer();
       return this;
@@ -337,8 +390,12 @@
 
     Toast.prototype._addContent = function(content) {
       var key;
-      if (content == null) content = this._option('content');
-      if (typeof content === 'function') return this._addContent(content);
+      if (content == null) {
+        content = this._option('content');
+      }
+      if (typeof content === 'function') {
+        return this._addContent(content);
+      }
       key = this._option('allowHTML') === true ? 'innerHTML' : this.element.innerText != null ? 'innerText' : 'textContent';
       this.element[key] = content;
       return this;
@@ -359,8 +416,12 @@
     Toast.prototype._addElementClasses = function() {
       if (!this.isShowing()) {
         this.element.className = 'toast';
-        if (this._shouldAnimate()) this._addClass('animate');
-        if (this._option('className')) this._addClass(this.className);
+        if (this._shouldAnimate()) {
+          this._addClass('animate');
+        }
+        if (this._option('className')) {
+          this._addClass(this.className);
+        }
       }
       return this;
     };
@@ -376,8 +437,12 @@
       height = this.element.offsetHeight;
       this.element.style.marginLeft = parseInt(-width / 2, 10) + 'px';
       this.element.style.marginTop = parseInt(-height / 2, 10) + 'px';
+      this.element.style.left = '50%';
+      this.element.style.top = '50%';
       this._addClass('bounce');
-      if (!this.isShowing()) this._addClass('show');
+      if (!this.isShowing()) {
+        this._addClass('show');
+      }
       return this;
     };
 
@@ -387,7 +452,9 @@
       for (_i = 0, _len = classNames.length; _i < _len; _i++) {
         className = classNames[_i];
         if (!this._hasClass(className)) {
-          if (this.element.className) this.element.className += ' ';
+          if (this.element.className) {
+            this.element.className += ' ';
+          }
           this.element.className += className;
         }
       }
@@ -398,7 +465,9 @@
       var duration,
         _this = this;
       duration = this._option('duration');
-      if (duration in DURATION_MAP) duration = DURATION_MAP[duration];
+      if (duration in DURATION_MAP) {
+        duration = DURATION_MAP[duration];
+      }
       this.tc.addCallback(this.element, function() {
         if (duration !== 'infinite') {
           _this.hideTimeout = setTimeout(function() {
@@ -411,7 +480,9 @@
     };
 
     Toast.prototype.hide = function(options) {
-      if (options == null) options = {};
+      if (options == null) {
+        options = {};
+      }
       this._temporaryOptions = options;
       this._clearTimeout();
       if (this._shouldAnimate()) {
@@ -425,7 +496,9 @@
 
     Toast.prototype._remove = function() {
       var _ref;
-      if ((_ref = this.element.parentNode) != null) _ref.removeChild(this.element);
+      if ((_ref = this.element.parentNode) != null) {
+        _ref.removeChild(this.element);
+      }
       this._removeClass('hide', 'shown');
       return this;
     };
