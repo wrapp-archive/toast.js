@@ -26,6 +26,11 @@ Prerequisites
 * [Rake](http://rake.rubyforge.org/)
 * [Bundler](http://gembundler.com/)
 
+Initializing submodules
+-----------------------
+ - `git submodule init`
+ - `git submodule update`
+
 Running the build
 -----------------
 - `bundle install`
@@ -52,8 +57,7 @@ Here is a basic example:
 
 Examples
 --------
-An example can be found in the examples directory.
-
+An example can be found in the examples directory or at [the example site](http://wrapp.github.com/toast.js).
 
 Instance variables
 ------------------
@@ -87,5 +91,10 @@ This project is licensed under the [MIT License](http://en.wikipedia.org/wiki/MI
 
 Changelist
 ==========
+### 1.0.1
+* Fix a bug when specifying a duration in the constructor.
+* Bump the version of transition-callbacks.js
+* Add some clearer instructions to the README.
+
 ### 1.0
 * Initial release.

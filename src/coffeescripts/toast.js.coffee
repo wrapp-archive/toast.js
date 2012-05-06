@@ -8,7 +8,7 @@ DURATION_MAP =
 OPTIONS = ['duration', 'content', 'id', 'className', 'animate', 'allowHTML']
 
 class window.Toast
-  @VERSION: '1.0'
+  @VERSION: '1.0.1'
 
   constructor: (options = {}) ->
     @tc = new TransitionCallbacks(clearAll: true, timeout: 500)
@@ -19,7 +19,7 @@ class window.Toast
 
   _setupDefaultOptions: (options) =>
     @[opt] = options[opt] for opt of OPTIONS
-    @duration ||= DEFAULT_DURATION
+    @duration = options.duration or DEFAULT_DURATION
     @animate = @animate isnt false
     return this
 
@@ -103,6 +103,8 @@ class window.Toast
 
     @element.style.marginLeft = parseInt(-width/2, 10) + 'px'
     @element.style.marginTop = parseInt(-height/2, 10) + 'px'
+    @element.style.left = '50%'
+    @element.style.top = '50%'
 
     @_addClass('bounce')
     @_addClass('show') if not @isShowing()
