@@ -93,6 +93,7 @@ Changelist
 ==========
 ### 1.0.2
 * Add a min width to toasts.
+* Make the toast work with twitter's bootstrap library.
 
 ### 1.0.1
 * Fix a bug when specifying a duration in the constructor.
