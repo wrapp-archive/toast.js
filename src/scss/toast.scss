@@ -68,6 +68,8 @@
   color: #fff;
   border-color: #000;
   z-index: 1000;
+  min-width: 150px;
+  text-align: center;
 
   &.animate {
     @include opacity(0);
@@ -91,6 +93,8 @@
       @include experimental(transform, scaleX(1));
 
       &.hide {
+        // Needed to work with twitter's bootstrap
+        display: block;
         $duration: 0.3s;
         @include transition(opacity $duration);
         @include opacity(0);
