@@ -25,8 +25,6 @@
   window.TransitionCallbacks = (function() {
     var _this = this;
 
-    TransitionCallbacks.name = 'TransitionCallbacks';
-
     TransitionCallbacks.VERSION = '1.0.1';
 
     TransitionCallbacks.timeout = 3000;
@@ -203,8 +201,6 @@
 
   TransitionCallbacks.NoCallbackGiven = (function() {
 
-    NoCallbackGiven.name = 'NoCallbackGiven';
-
     NoCallbackGiven.prototype = Error.prototype;
 
     function NoCallbackGiven() {
@@ -216,8 +212,6 @@
   })();
 
   TransitionCallbacks.NoElementGiven = (function() {
-
-    NoElementGiven.name = 'NoElementGiven';
 
     NoElementGiven.prototype = Error.prototype;
 
@@ -278,9 +272,7 @@
 
   window.Toast = (function() {
 
-    Toast.name = 'Toast';
-
-    Toast.VERSION = '1.0.1';
+    Toast.VERSION = '1.0.2';
 
     function Toast(options) {
       if (options == null) {

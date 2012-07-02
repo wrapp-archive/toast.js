@@ -114,8 +114,10 @@
   max-width: 90%;
   color: #fff;
   border-color: #000;
-  z-index: 1000; }
-  /* line 72, ../../src/scss/toast.scss */
+  z-index: 1000;
+  min-width: 150px;
+  text-align: center; }
+  /* line 74, ../../src/scss/toast.scss */
   .toast.animate {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
@@ -124,7 +126,7 @@
     -ms-transform: scaleX(0);
     -o-transform: scaleX(0);
     transform: scaleX(0); }
-    /* line 76, ../../src/scss/toast.scss */
+    /* line 78, ../../src/scss/toast.scss */
     .toast.animate.bounce {
       -webkit-animation: toast-show 0.4s;
       -moz-animation: toast-show 0.4s;
@@ -133,15 +135,14 @@
       animation: toast-show 0.4s;
       -webkit-transition: border-color 0.4s;
       -moz-transition: border-color 0.4s;
-      -ms-transition: border-color 0.4s;
       -o-transition: border-color 0.4s;
       transition: border-color 0.4s;
       border-color: #fff; }
-    /* line 85, ../../src/scss/toast.scss */
+    /* line 87, ../../src/scss/toast.scss */
     .toast.animate.show {
       filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
       opacity: 1; }
-    /* line 89, ../../src/scss/toast.scss */
+    /* line 91, ../../src/scss/toast.scss */
     .toast.animate.shown {
       filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
       opacity: 1;
@@ -150,11 +151,11 @@
       -ms-transform: scaleX(1);
       -o-transform: scaleX(1);
       transform: scaleX(1); }
-      /* line 93, ../../src/scss/toast.scss */
+      /* line 95, ../../src/scss/toast.scss */
       .toast.animate.shown.hide {
+        display: block;
         -webkit-transition: opacity 0.3s;
         -moz-transition: opacity 0.3s;
-        -ms-transition: opacity 0.3s;
         -o-transition: opacity 0.3s;
         transition: opacity 0.3s;
         filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
