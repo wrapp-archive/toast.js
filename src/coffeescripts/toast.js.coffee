@@ -18,7 +18,7 @@ class window.Toast
       ._addElementId()
 
   _setupDefaultOptions: (options) =>
-    @[opt] = options[opt] for opt of OPTIONS
+    @[opt] = options[opt] for opt in OPTIONS
     @duration = options.duration or DEFAULT_DURATION
     @animate = @animate isnt false
     return this
