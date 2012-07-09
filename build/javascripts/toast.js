@@ -272,7 +272,7 @@
 
   window.Toast = (function() {
 
-    Toast.VERSION = '1.0.2';
+    Toast.VERSION = '1.0.3';
 
     function Toast(options) {
       if (options == null) {
@@ -320,8 +320,9 @@
     }
 
     Toast.prototype._setupDefaultOptions = function(options) {
-      var opt;
-      for (opt in OPTIONS) {
+      var opt, _i, _len;
+      for (_i = 0, _len = OPTIONS.length; _i < _len; _i++) {
+        opt = OPTIONS[_i];
         this[opt] = options[opt];
       }
       this.duration = options.duration || DEFAULT_DURATION;
