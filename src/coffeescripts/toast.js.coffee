@@ -8,7 +8,7 @@ DURATION_MAP =
 OPTIONS = ['duration', 'content', 'id', 'className', 'animate', 'allowHTML']
 
 class window.Toast
-  @VERSION: '1.0.2'
+  @VERSION: '1.0.3'
 
   constructor: (options = {}) ->
     @tc = new TransitionCallbacks(clearAll: true, timeout: 500)
@@ -18,7 +18,7 @@ class window.Toast
       ._addElementId()
 
   _setupDefaultOptions: (options) =>
-    @[opt] = options[opt] for opt of OPTIONS
+    @[opt] = options[opt] for opt in OPTIONS
     @duration = options.duration or DEFAULT_DURATION
     @animate = @animate isnt false
     return this

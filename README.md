@@ -91,6 +91,9 @@ This project is licensed under the [MIT License](http://en.wikipedia.org/wiki/MI
 
 Changelist
 ==========
+### 1.0.3
+* Fix a bug when specifying arguments in the constructor.
+
 ### 1.0.2
 * Add a min width to toasts.
 * Make the toast work with twitter's bootstrap library.
