@@ -152,3 +152,5 @@ class window.Toast
     @element.parentNode?.removeChild(@element)
     @._removeClass('hide', 'shown')
     return this
+
+  @show: => new Toast(arguments...).show()

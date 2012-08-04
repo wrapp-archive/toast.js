@@ -81,6 +81,10 @@ Public methods
 * `hide([options])` - Hides the toast, useful if duration is `infinite`. The options include an `animate` parameter which is useful when you need to hide it straight away.
 * `isShowing` - Returns `true` if the toast is showing. While the toast is in the process of being hidden this will return `false`.
 
+Class methods
+-------------
+* `show([options])` - Shorthand for `new Toast(options).show()`.
+
 Contact
 =======
 To report any problems or suggestions please use the [GitHub issue tracker](https://github.com/wrapp/toast.js/issues).
@@ -91,6 +95,9 @@ This project is licensed under the [MIT License](http://en.wikipedia.org/wiki/MI
 
 Changelist
 ==========
+### 1.0.4
+* Add a `Toast.show` as a shorthand.
+
 ### 1.0.3
 * Fix a bug when specifying arguments in the constructor.
 
