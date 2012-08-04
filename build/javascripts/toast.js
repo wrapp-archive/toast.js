@@ -272,7 +272,7 @@
 
   window.Toast = (function() {
 
-    Toast.VERSION = '1.0.3';
+    Toast.VERSION = '1.0.4';
 
     function Toast(options) {
       if (options == null) {
@@ -494,6 +494,14 @@
       }
       this._removeClass('hide', 'shown');
       return this;
+    };
+
+    Toast.show = function() {
+      return (function(func, args, ctor) {
+        ctor.prototype = func.prototype;
+        var child = new ctor, result = func.apply(child, args), t = typeof result;
+        return t == "object" || t == "function" ? result || child : child;
+      })(Toast, arguments, function(){}).show();
     };
 
     return Toast;
