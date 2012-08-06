@@ -272,7 +272,7 @@
 
   window.Toast = (function() {
 
-    Toast.VERSION = '1.0.2';
+    Toast.VERSION = '1.0.4';
 
     function Toast(options) {
       if (options == null) {
@@ -320,8 +320,9 @@
     }
 
     Toast.prototype._setupDefaultOptions = function(options) {
-      var opt;
-      for (opt in OPTIONS) {
+      var opt, _i, _len;
+      for (_i = 0, _len = OPTIONS.length; _i < _len; _i++) {
+        opt = OPTIONS[_i];
         this[opt] = options[opt];
       }
       this.duration = options.duration || DEFAULT_DURATION;
@@ -493,6 +494,14 @@
       }
       this._removeClass('hide', 'shown');
       return this;
+    };
+
+    Toast.show = function() {
+      return (function(func, args, ctor) {
+        ctor.prototype = func.prototype;
+        var child = new ctor, result = func.apply(child, args), t = typeof result;
+        return t == "object" || t == "function" ? result || child : child;
+      })(Toast, arguments, function(){}).show();
     };
 
     return Toast;
