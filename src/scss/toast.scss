@@ -90,7 +90,7 @@
 
     &.shown {
       @include opacity(1);
-      @include experimental(transform, scaleX(1));
+      @include experimental(transform, none);
 
       &.hide {
         // Needed to work with twitter's bootstrap
