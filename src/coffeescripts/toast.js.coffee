@@ -8,7 +8,7 @@ DURATION_MAP =
 OPTIONS = ['duration', 'content', 'id', 'className', 'animate', 'allowHTML']
 
 class window.Toast
-  @VERSION: '1.0.4'
+  @VERSION: '1.0.5'
 
   constructor: (options = {}) ->
     @tc = new TransitionCallbacks(clearAll: true, timeout: 500)

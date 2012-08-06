@@ -83,7 +83,7 @@ Public methods
 
 Class methods
 -------------
-* `show([options])` - Shorthand for `new Toast(options).show()`.
+* `show([options])` - Shorthand for `new Toast(options).show()`. Returns the newly created toast.
 
 Contact
 =======
@@ -95,6 +95,9 @@ This project is licensed under the [MIT License](http://en.wikipedia.org/wiki/MI
 
 Changelist
 ==========
+### 1.0.5
+* Fixed a small graphical glitch.
+
 ### 1.0.4
 * Add a `Toast.show` as a shorthand.
 
