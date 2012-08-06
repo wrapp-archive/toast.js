@@ -272,7 +272,7 @@
 
   window.Toast = (function() {
 
-    Toast.VERSION = '1.0.4';
+    Toast.VERSION = '1.0.5';
 
     function Toast(options) {
       if (options == null) {
